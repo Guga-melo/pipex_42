@@ -1,20 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/12 14:12:31 by gussoare          #+#    #+#             */
-/*   Updated: 2022/07/19 09:07:51 by gussoare         ###   ########.fr       */
+/*   Created: 2022/05/25 09:32:27 by gussoare          #+#    #+#             */
+/*   Updated: 2022/05/26 09:22:28 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
+#include "libft.h"
 
-# include "../libft/libft.h"
+void	ft_lstclear(t_list **lst, void (*del)(void*))
+{
+	t_list	*tempnext;
+	t_list	*temp;
 
-int	get_path(char **path);
-
-#endif
+	temp = *lst;
+	if (!*lst)
+		return ;
+	while (temp)
+	{
+		tempnext = temp->next;
+		ft_lstdelone(temp, del);
+		temp = tempnext;
+	}
+	*lst = 0;
+}

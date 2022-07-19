@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/12 14:12:31 by gussoare          #+#    #+#             */
-/*   Updated: 2022/07/19 09:07:51 by gussoare         ###   ########.fr       */
+/*   Created: 2022/05/19 16:07:22 by gussoare          #+#    #+#             */
+/*   Updated: 2022/05/26 09:42:08 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
+#include "libft.h"
 
-# include "../libft/libft.h"
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+{
+	int	i;
 
-int	get_path(char **path);
-
-#endif
+	i = 0;
+	if (s && f)
+	{
+		while (s[i] != 0)
+		{
+			f(i, &s[i]);
+			i++;
+		}
+	}
+}

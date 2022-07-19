@@ -1,20 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/12 14:12:31 by gussoare          #+#    #+#             */
-/*   Updated: 2022/07/19 09:07:51 by gussoare         ###   ########.fr       */
+/*   Created: 2022/05/03 16:54:40 by gussoare          #+#    #+#             */
+/*   Updated: 2022/05/26 10:38:59 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
+#include "libft.h"
 
-# include "../libft/libft.h"
+size_t	ft_strlen(const char *s)
+{
+	size_t	i;
 
-int	get_path(char **path);
+	i = 0;
+	while (s[i] != '\0')
+	{
+		i++;
+	}
+	return (i);
+}
+/*#include <stdio.h>
 
-#endif
+int main()
+{
+	char str[60] = "abc";
+	printf("%zu", ft_strlen(str));
+	return (0);
+}*/

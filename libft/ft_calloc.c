@@ -1,20 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/12 14:12:31 by gussoare          #+#    #+#             */
-/*   Updated: 2022/07/19 09:07:51 by gussoare         ###   ########.fr       */
+/*   Created: 2022/05/10 13:45:05 by gussoare          #+#    #+#             */
+/*   Updated: 2022/05/26 07:51:56 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
+#include "libft.h"
 
-# include "../libft/libft.h"
+void	*ft_calloc(size_t count, size_t size)
+{
+	void	*p;
 
-int	get_path(char **path);
+	if (!count || !size)
+	{
+		count = 1;
+		size = 1;
+	}
+	if ((count * size) / count != size)
+		return (0);
+	p = malloc(count * size);
+	if (p == 0)
+		return (0);
+	ft_bzero(p, count * size);
+	return (p);
+}
 
-#endif
+/*#include <string.h>
+#include <stdio.h>
+
+int main()
+{
+	printf("%s", ft_calloc(SIZE_MAX, SIZE_MAX));
+	return (0);
+}*/

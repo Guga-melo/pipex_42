@@ -1,20 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/12 14:12:31 by gussoare          #+#    #+#             */
-/*   Updated: 2022/07/19 09:07:51 by gussoare         ###   ########.fr       */
+/*   Created: 2022/05/03 14:30:28 by gussoare          #+#    #+#             */
+/*   Updated: 2022/05/26 10:21:30 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
+#include "libft.h"
 
-# include "../libft/libft.h"
+int	ft_isprint(int c)
+{
+	if ((c >= 32) && (c < 127))
+		return (1);
+	else
+		return (0);
+}
+/*#include <stdio.h>
 
-int	get_path(char **path);
+int main()
+{
+	char c;
 
-#endif
+	c = '\n';
+	printf("%d", ft_isprint(c));
+	return (0);
+}*/

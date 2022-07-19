@@ -1,20 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/12 14:12:31 by gussoare          #+#    #+#             */
-/*   Updated: 2022/07/19 09:07:51 by gussoare         ###   ########.fr       */
+/*   Created: 2022/05/04 13:38:11 by gussoare          #+#    #+#             */
+/*   Updated: 2022/05/26 10:41:30 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
+#include "libft.h"
 
-# include "../libft/libft.h"
+int	ft_tolower(int c)
+{
+	if (c >= 'A' && c <= 'Z' )
+		c += 32;
+	return (c);
+}
+/*#include <stdio.h>
 
-int	get_path(char **path);
+int main()
+{
+	char c;
 
-#endif
+	c = 'G';
+	printf("%c", ft_tolower(c));
+	return (0);
+}*/

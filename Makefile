@@ -1,6 +1,6 @@
 NAME	= pipex.a
 
-SRCS	= 
+SRCS	= ./source/get_path.c
 
 OBJS	= $(SRCS:.c=.o)
 
@@ -12,19 +12,20 @@ RM		= rm -f
 CFLAGS	= -Wall -Werror -Wextra
 
 $(NAME):	$(OBJS)
-			make -C ./Libft
-			cp ./Libft/libft.a ./pipex.a
+			make -C ./libft
+			cp ./libft/libft.a $(NAME)
 			ar rcs $(NAME) $(OBJS)
+			cc $(NAME) -o pipex
 
 all:		$(NAME)
 
 clean:
-			make clean -C ./Libft
+			make clean -C ./libft
 			$(RM) $(OBJS)
 
 fclean:		clean
-			make fclean -C ./Libft
-			$(RM) $(NAME)
+			make fclean -C ./libft
+			$(RM) $(NAME) pipex
 
 re:			fclean all
 

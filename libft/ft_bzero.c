@@ -1,20 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/12 14:12:31 by gussoare          #+#    #+#             */
-/*   Updated: 2022/07/19 09:07:51 by gussoare         ###   ########.fr       */
+/*   Created: 2022/05/04 08:54:12 by gussoare          #+#    #+#             */
+/*   Updated: 2022/05/26 10:17:57 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
+#include "libft.h"
 
-# include "../libft/libft.h"
+void	ft_bzero(void *s, size_t n)
+{
+	int				i;
+	unsigned char	*str;
 
-int	get_path(char **path);
+	str = (unsigned char *)s;
+	i = 0;
+	while (n > 0)
+	{
+		str[i] = 0;
+		n--;
+		i++;
+	}
+}
 
-#endif
+/*#include <stdio.h>
+
+int main()
+{
+	char str[40] = "SAY HELLO TO MY LITLLE FRIEND >:O";
+	size_t n;
+
+	n = 3;
+	ft_bzero(str, n);
+	printf("%s", str);
+	return (0);
+}*/

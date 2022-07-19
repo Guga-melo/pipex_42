@@ -1,20 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/12 14:12:31 by gussoare          #+#    #+#             */
-/*   Updated: 2022/07/19 09:07:51 by gussoare         ###   ########.fr       */
+/*   Created: 2022/05/03 14:36:59 by gussoare          #+#    #+#             */
+/*   Updated: 2022/05/30 09:02:17 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
+#include "libft.h"
 
-# include "../libft/libft.h"
+void	*ft_memset(void *b, int c, size_t len)
+{
+	int				i;
+	char			*str;
+	unsigned char	put;
 
-int	get_path(char **path);
+	i = 0;
+	str = (char *)b;
+	put = (unsigned char)c;
+	while (len > 0)
+	{
+		str[len - 1] = put;
+		len--;
+	}
+	return (str);
+}
+/*#include <stdio.h>
 
-#endif
+int main ()
+{
+	char str[50] = "ola mundo :D, adeus mundo :c";
+	printf("%s", ft_memset(str, '#', 3));
+	return (0);
+}*/

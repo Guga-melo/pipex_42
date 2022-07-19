@@ -1,20 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   get_path.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/12 14:12:31 by gussoare          #+#    #+#             */
-/*   Updated: 2022/07/19 09:07:51 by gussoare         ###   ########.fr       */
+/*   Created: 2022/07/19 08:17:52 by gussoare          #+#    #+#             */
+/*   Updated: 2022/07/19 09:23:36 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
+#include "pipex.h"
 
-# include "../libft/libft.h"
+int	get_path(char **path)
+{
+	int	i;
 
-int	get_path(char **path);
+	i = 0;
+	while(path[i])
+	{
+		if(ft_strnstr(path[i], "PATH=", 5))
+			break;
+		i++;
+	}
+	ft_printf("%s", path[i]);
+	return (0); 
+}
 
-#endif
+int main(int argc, char **argv, char **envp)
+{
+	get_path(envp);
+	(void)argc;
+	(void)argv;
+	return (0);
+}
