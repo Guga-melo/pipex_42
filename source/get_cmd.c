@@ -6,7 +6,7 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 10:59:51 by gussoare          #+#    #+#             */
-/*   Updated: 2022/07/19 14:49:05 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/07/21 09:26:55 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 
 char	**get_cmd(char *argv)
 {
-	char **cmd;
+	char	**cmd;
 
-	if 
 	cmd = ft_split(argv, ' ');
 	return (cmd);
 }

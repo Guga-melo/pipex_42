@@ -6,29 +6,29 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 08:17:52 by gussoare          #+#    #+#             */
-/*   Updated: 2022/07/19 11:31:52 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/07/21 09:30:45 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-char	*get_path(char **cmd,char **path)
+char	*get_path(char **cmd, char **path)
 {
-	int	i;
-	char *aux;
-	char **temp;
-	char *cmd_path;
+	int		i;
+	char	*aux;
+	char	**temp;
+	char	*cmd_path;
 
 	i = 0;
-	while(path[i])
+	while (path[i])
 	{
-		if(ft_strnstr(path[i], "PATH=", 5))
-			break;
+		if (ft_strnstr(path[i], "PATH=", 5))
+			break ;
 		i++;
 	}
 	temp = ft_split(path[i] + 5, ':');
 	i = 0;
-	while(temp[i])
+	while (temp[i])
 	{
 		aux = ft_strjoin(temp[i], "/");
 		cmd_path = ft_strjoin(aux, cmd[0]);
@@ -38,6 +38,5 @@ char	*get_path(char **cmd,char **path)
 		free(cmd_path);
 		i++;
 	}
-	return (0);	
+	return (0);
 }
-
