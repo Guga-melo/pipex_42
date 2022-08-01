@@ -6,7 +6,7 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 08:17:52 by gussoare          #+#    #+#             */
-/*   Updated: 2022/07/25 08:26:35 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/07/29 14:19:43 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,15 @@ char	*get_path(char **cmd, char **path)
 	char	**temp;
 	char	*cmd_path;
 
-	i = 0;
-	while (path[i])
+	i = -1;
+	while (path[++i])
 	{
 		if (ft_strnstr(path[i], "PATH=", 5))
 			break ;
-		i++;
 	}
 	temp = ft_split(path[i] + 5, ':');
-	i = 0;
-	while (temp[i])
+	i = -1;
+	while (temp[++i])
 	{
 		aux = ft_strjoin(temp[i], "/");
 		cmd_path = ft_strjoin(aux, cmd[0]);
@@ -36,7 +35,7 @@ char	*get_path(char **cmd, char **path)
 		if (access(cmd_path, F_OK | X_OK) == 0)
 			return (cmd_path);
 		free(cmd_path);
-		i++;
 	}
+	error_exit_cmd(cmd[0]);
 	return (0);
 }

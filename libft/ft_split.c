@@ -6,7 +6,7 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 08:41:41 by gussoare          #+#    #+#             */
-/*   Updated: 2022/05/26 10:35:51 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/07/29 09:11:28 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,29 @@ static size_t	ft_wordcount(char const *s, char c)
 	size_t	i;
 	size_t	j;
 
-	i = 0;
+	i = 1;
 	j = 0;
-	while (s[i] != 0)
+	while (*s && *s == c)
+		s++;
+	while (s[j])
 	{
-		if (s[i] != c && (s[i - 1] == c || i == 0))
+		if (s[j] != c && s[j - 1] == c)
+			i++;
+		if (s[j] == '"')
+		{
 			j++;
-		i++;
+			while (s[j] != '"')
+				j++;
+		}
+		if (s[j] == 39)
+		{
+			j++;
+			while (s[j] != 39)
+				j++;
+		}
+		j++;
 	}
-	return (j);
+	return (i);
 }
 
 static size_t	ft_strsize(char const *s, char c)
@@ -34,7 +48,21 @@ static size_t	ft_strsize(char const *s, char c)
 
 	i = 0;
 	while (s[i] != 0 && s[i] != c)
+	{
+		if (s[i] == '"')
+		{
+			i++;
+			while (s[i] != '"')
+				i++;
+		}
+		if (s[i] == 39)
+		{
+			i++;
+			while (s[i] != 39)
+				i++;
+		}
 		i++;
+	}
 	return (i);
 }
 

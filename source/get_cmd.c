@@ -6,16 +6,30 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 10:59:51 by gussoare          #+#    #+#             */
-/*   Updated: 2022/07/25 13:24:30 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/07/29 14:16:54 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
+static char	**ft_trim(char **cmd)
+{
+	int		i;
+
+
+	i = 0;
+	while (cmd[i])
+	{
+		cmd[i] = ft_strtrim(cmd[i], "'\"");
+		i++;
+	}
+	return (cmd);
+}
+
 char	**get_cmd(char *argv)
 {
 	char	**cmd;
-	char 	**path;
+	char	**path;
 	char	**split;
 	int		i;
 
@@ -30,9 +44,13 @@ char	**get_cmd(char *argv)
 			cmd = ft_split(path[i], ' ');
 		}
 		else
+		{
+			error_exit_path(argv);
 			return (0);
+		}
 	}
 	else
 		cmd = ft_split(argv, ' ');
+	cmd = ft_trim(cmd);
 	return (cmd);
 }

@@ -6,7 +6,7 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 13:46:42 by gussoare          #+#    #+#             */
-/*   Updated: 2022/07/25 13:17:37 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/07/29 14:49:14 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,10 @@ int	child1(char	**argv, char **envp, int *fd)
 
 	file1 = open(argv[1], O_RDONLY);
 	if (file1 == -1)
-	{
-		perror("ERROR");
-		return (2);
-	}
+		error_exit_file(argv[1]);
 	child1 = fork();
 	if (child1 == -1)
-		return (3);
+		error_exit_child();
 	if (child1 == 0)
 	{
 		dup2(file1, STDIN_FILENO);
@@ -51,13 +48,10 @@ int	child2(char	**argv, char **envp, int *fd)
 
 	file2 = open(argv[4], O_WRONLY | O_CREAT | O_TRUNC, 0777);
 	if (file2 == -1)
-	{
-		perror("ERROR");
-		return(2);
-	}
+		error_exit_file(argv[1]);
 	child2 = fork();
 	if (child2 == -1)
-		return (3);
+		error_exit_child();
 	if (child2 == 0)
 	{
 		dup2(file2, STDOUT_FILENO);
