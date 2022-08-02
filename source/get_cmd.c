@@ -6,7 +6,7 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 10:59:51 by gussoare          #+#    #+#             */
-/*   Updated: 2022/07/29 14:16:54 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/08/01 09:27:11 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 static char	**ft_trim(char **cmd)
 {
 	int		i;
-
 
 	i = 0;
 	while (cmd[i])

@@ -6,7 +6,7 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 08:41:41 by gussoare          #+#    #+#             */
-/*   Updated: 2022/07/29 09:11:28 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/08/01 09:28:58 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ static size_t	ft_wordcount(char const *s, char c)
 	size_t	j;
 
 	i = 1;
-	j = 0;
+	j = -1;
 	while (*s && *s == c)
 		s++;
-	while (s[j])
+	while (s[++j])
 	{
 		if (s[j] != c && s[j - 1] == c)
 			i++;
@@ -37,7 +37,6 @@ static size_t	ft_wordcount(char const *s, char c)
 			while (s[j] != 39)
 				j++;
 		}
-		j++;
 	}
 	return (i);
 }
