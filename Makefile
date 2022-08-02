@@ -1,6 +1,6 @@
 NAME	= pipex.a
 
-SRCS	= ./source/pipex.c ./source/children.c ./source/get_cmd.c ./source/get_path.c ./source/error_exit.c
+SRCS	= pipex.c children.c get_cmd.c get_path.c error_exit.c
 
 OBJS	= $(SRCS:.c=.o)
 
@@ -16,6 +16,7 @@ $(NAME):	$(OBJS)
 			cp ./libft/libft.a $(NAME)
 			ar rcs $(NAME) $(OBJS)
 			cc $(NAME) -o pipex
+			$(RM) $(NAME)
 
 all:		$(NAME)
 

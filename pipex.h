@@ -6,7 +6,7 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 14:12:31 by gussoare          #+#    #+#             */
-/*   Updated: 2022/07/26 14:42:53 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/08/02 09:51:17 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <errno.h>
 # include <sys/wait.h>
 # include <fcntl.h>
-# include "../libft/libft.h"
+# include "./libft/libft.h"
 
 int		child1(char	**argv, char **envp, int *fd);
 int		child2(char	**argv, char **envp, int *fd);
